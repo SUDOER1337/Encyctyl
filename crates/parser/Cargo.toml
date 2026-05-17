@@ -1,0 +1,11 @@
+[package]
+name = "encyctyl-parser"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+encyctyl-core = { path = "../core" }
+pulldown-cmark = "0.12"
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0.9"
+thiserror = "2"
