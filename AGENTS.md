@@ -5,7 +5,7 @@
 - **Status**: Early scaffolding — core, vault, and parser crates implemented. Pre-MVP, no tests yet.
 - **Goal**: Dev-native knowledge system — plaintext-first, offline-first, keyboard-first, git-native, local AI.
 
-## Architecture (planned — see `dev_native_knowledge_system_agent_plan.md`)
+## Architecture (planned — see `plan.md`)
 - **Stack**: Rust core → egui desktop + Kotlin/Compose Android
 - **Storage**: Markdown files (source of truth) + SQLite metadata
 - **Search**: Tantivy full-text + vector embeddings (bge-small/nomic-embed/all-MiniLM)
@@ -17,17 +17,17 @@
 ```
 repo/
 ├── apps/       (empty)
-├── crates/     core/ [x] vault/ [x] parser/ [x]
+├── crates/     core/ [x] vault/ [x] parser/ [x] storage/ [x]
 ├── mobile/     rust-ffi/
 ├── docs/ scripts/ tools/
 ```
 
-(Remaining crates: graph, indexer, search, git_sync, embeddings, rag, ai_runtime, workspace, whiteboard, vim, storage, ipc, events, telemetry — still to build.)
+(Remaining crates: graph, indexer, search, git_sync, embeddings, rag, ai_runtime, workspace, whiteboard, vim, ipc, events, telemetry — still to build.)
 
 ## Development progress (from plan)
 1. Vault system          [x]
 2. Markdown parser       [x]
-3. SQLite metadata       [ ]
+3. SQLite metadata       [x]
 4. Search/indexing       [ ]
 5. egui editor           [ ]
 6. Graph engine          [ ]

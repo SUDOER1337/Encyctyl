@@ -22,4 +22,6 @@ pub enum Error {
     NoteNotFound(PathBuf),
     #[error("Atomic write failed: {0}")]
     AtomicWrite(String),
+    #[error("Database error: {0}")]
+    Database(String),
 }

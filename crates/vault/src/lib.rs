@@ -2,6 +2,11 @@ use encyctyl_core::{Error, VaultConfig};
 use std::path::{Path, PathBuf};
 use walkdir::WalkDir;
 
+#[cfg(feature = "indexer")]
+use encyctyl_parser::parse_note;
+#[cfg(feature = "indexer")]
+use encyctyl_storage::Db;
+
 pub struct Vault {
     config: VaultConfig,
 }
@@ -59,5 +64,38 @@ impl Vault {
 
         tracing::debug!("wrote note: {}", full_path.display());
         Ok(())
+    }
+
+    #[cfg(feature = "indexer")]
+    pub fn read_and_index_note(
+        &self,
+        note_path: &Path,
+        db: &Db,
+    ) -> Result<encyctyl_parser::ParsedNote, Error> {
+        let content = self.read_note(note_path)?;
+        let parsed = parse_note(&content)?;
+
+        let links: Vec<(&str, Option<&str>)> = parsed
+            .wiki_links
+            .iter()
+            .map(|wl| (wl.target.as_str(), wl.alias.as_deref()))
+            .collect();
+
+        db.upsert_note(
+            note_path,
+            parsed.frontmatter.as_ref().and_then(|f| f.title.as_deref()),
+            None,
+            &parsed.tags,
+            &links,
+        )?;
+
+        tracing::info!(
+            "indexed {} ({} tags, {} links)",
+            note_path.display(),
+            parsed.tags.len(),
+            parsed.wiki_links.len(),
+        );
+
+        Ok(parsed)
     }
 }

@@ -86,6 +86,7 @@ repo/
 │   ├── core/           [x]
 │   ├── vault/          [x]
 │   ├── parser/         [x]
+│   ├── storage/        [x]
 │   ├── graph/
 │   ├── indexer/
 │   ├── search/
@@ -216,9 +217,9 @@ Core Engine
 
 ---
 
-# 9. Storage Agent
+# 9. Storage Agent [x]
 
-## Source of Truth
+## Responsibilities
 
 Markdown files.
 
@@ -680,7 +681,7 @@ Telemetry must be:
 Goals:
 - vault loading          [x]
 - markdown editing       [x] (parser only, no editor yet)
-- SQLite metadata
+- SQLite metadata        [x]
 - file watching
 - basic search
 
@@ -816,7 +817,7 @@ tracing
 
 1. Vault system          [x]
 2. Markdown parser       [x]
-3. SQLite metadata
+3. SQLite metadata       [x]
 4. Search/indexing
 5. egui editor
 6. Graph engine

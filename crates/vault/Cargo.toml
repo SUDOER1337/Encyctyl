@@ -5,8 +5,13 @@ edition = "2021"
 
 [dependencies]
 encyctyl-core = { path = "../core" }
+encyctyl-parser = { path = "../parser", optional = true }
+encyctyl-storage = { path = "../storage", optional = true, features = ["bundled"] }
 serde = { version = "1", features = ["derive"] }
 thiserror = "2"
 tracing = "0.1"
 walkdir = "2"
 tempfile = "3"
+
+[features]
+indexer = ["encyctyl-parser", "encyctyl-storage"]
