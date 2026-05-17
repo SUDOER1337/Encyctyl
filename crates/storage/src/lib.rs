@@ -118,7 +118,7 @@ impl Db {
             .map_err(db_err)?;
         }
 
-        conn.execute("DELETE FROM links WHERE note_id = ?1", params![note_id])
+        conn.execute("DELETE FROM links WHERE source_id = ?1", params![note_id])
             .map_err(db_err)?;
         for (target, alias) in links {
             conn.execute(

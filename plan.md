@@ -79,7 +79,7 @@ Core design philosophy:
 ```text
 repo/
 ├── apps/
-│   ├── desktop/
+│   ├── desktop/        [x]
 │   └── android/
 │
 ├── crates/
@@ -819,7 +819,7 @@ tracing
 2. Markdown parser       [x]
 3. SQLite metadata       [x]
 4. Search/indexing
-5. egui editor
+5. egui editor          [x]
 6. Graph engine
 7. Git sync
 8. Android integration

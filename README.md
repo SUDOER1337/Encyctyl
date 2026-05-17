@@ -1,6 +1,6 @@
 # Encyctyl
 
-**Dev-native knowledge system.** Plaintext-first, offline-first, keyboard-first, git-native, local AI.
+**Dev-native knowledge system.** Markdown-first, offline-first, keyboard-first, git-native, Graph view, local AI agent.
 
 > **Status:** Pre-MVP / early scaffolding. Workspace, vault, parser, and SQLite metadata crates exist. No UI, no search, no sync yet.
 
@@ -11,7 +11,7 @@
 - **Mobile (planned):** Kotlin + Jetpack Compose, Rust via JNI
 - **Storage:** Markdown files (source of truth) + SQLite metadata
 - **Search (planned):** Tantivy full-text + vector embeddings
-- **AI (planned):** Local inference via llama.cpp / Candle / ONNX
+- **AI (optional / planned):** Local inference via llama.cpp / Ollama
 
 ## Crates
 
@@ -26,6 +26,8 @@
 ## Quick start
 
 ```bash
+cargo run                           # indexes .md files in current directory
+cargo run path/to/vault             # point at a specific vault directory
 cargo build
 cargo check -p encyctyl-vault --features indexer
 ```

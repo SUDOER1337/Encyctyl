@@ -1,3 +1,8 @@
+[package]
+name = "encyctyl"
+version = "0.1.0"
+edition = "2021"
+
 [workspace]
 resolver = "2"
 members = [
@@ -5,4 +10,12 @@ members = [
     "crates/vault",
     "crates/parser",
     "crates/storage",
+    "apps/desktop",
 ]
+
+[dependencies]
+encyctyl-core = { path = "crates/core" }
+encyctyl-vault = { path = "crates/vault", features = ["indexer"] }
+encyctyl-parser = { path = "crates/parser" }
+encyctyl-storage = { path = "crates/storage", features = ["bundled"] }
+tracing = "0.1"

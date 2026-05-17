@@ -1,0 +1,11 @@
+[package]
+name = "encyctyl-desktop"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = "0.34"
+encyctyl-core = { path = "../../crates/core" }
+encyctyl-vault = { path = "../../crates/vault", features = ["indexer"] }
+encyctyl-parser = { path = "../../crates/parser" }
+encyctyl-storage = { path = "../../crates/storage", features = ["bundled"] }

@@ -16,7 +16,7 @@
 ## Current repo structure
 ```
 repo/
-├── apps/       (empty)
+├── apps/       desktop/ [x]
 ├── crates/     core/ [x] vault/ [x] parser/ [x] storage/ [x]
 ├── mobile/     rust-ffi/
 ├── docs/ scripts/ tools/
@@ -29,7 +29,7 @@ repo/
 2. Markdown parser       [x]
 3. SQLite metadata       [x]
 4. Search/indexing       [ ]
-5. egui editor           [ ]
+5. egui editor           [x] (blank window)
 6. Graph engine          [ ]
 7. Git sync              [ ]
 8. Android integration   [ ]
